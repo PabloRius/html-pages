@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Subscription Checkout Page</title>
+    <link rel="stylesheet" href="./style/base.css" />
+    <link rel="stylesheet" href="./style/components.css" />
+    <link rel="stylesheet" href="./style/layout.css" />
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/variables.css" />
+  </head>
+  <body>
+    <form id="subscription-form">
+      <main>
+        <h1>
+          <img src="../../common/assets/icons/Logo.svg" alt="Company Logo" />
+          Neuralite
+        </h1>
+        <h2>Upgrade to Plus</h2>
+        <p>
+          Upgrade today and take your AI-Powered productivity to the next level
+        </p>
+
+        <div class="inputGroup">
+          <label for="full_name"><span>Billed to</span></label>
+          <input
+            type="text"
+            name="full_name"
+            id="full_name"
+            placeholder="Enter first & last name"
+            required
+            title="Please enter your full name"
+          />
+        </div>
+
+        <div class="inputGroup">
+          <label>Payment Details</label>
+          <div class="radioGroup">
+            <input
+              type="radio"
+              name="payment_type"
+              id="payment_type_1"
+              value="Credit Card"
+              required
+            />
+            <label for="payment_type_1">
+              <img
+                src="../../common/assets/icons/CreditCard.svg"
+                alt="Credit Card Icon"
+              />
+              <span>Credit Card</span>
+            </label>
+            <input
+              type="radio"
+              name="payment_type"
+              id="payment_type_2"
+              value="Bank Transfer"
+              required
+            />
+            <label for="payment_type_2">
+              <img src="../../common/assets/icons/Bank.svg" alt="Bank Icon" />
+              <span>Bank Transfer</span>
+            </label>
+            <input
+              type="radio"
+              name="payment_type"
+              id="payment_type_3"
+              value="Points"
+              required
+            />
+            <label for="payment_type_3">
+              <img
+                src="../../common/assets/icons/Diamond.svg"
+                alt="Diamond Icon"
+              />
+              <span>Points</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="inputGroup">
+          <label for="email"><span>Email address</span></label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter email address"
+            required
+            title="Please enter a valid email address"
+          />
+        </div>
+        <div class="row">
+          <div class="inputGroup">
+            <label for="country"><span>Country</span></label>
+            <input
+              type="text"
+              name="country"
+              id="country"
+              required
+              title="Please enter your country"
+            />
+          </div>
+          <div class="inputGroup">
+            <label for="postal"><span>Postal Code</span></label>
+            <input
+              type="text"
+              name="postal"
+              id="postal"
+              placeholder="00270"
+              pattern="\d{5}"
+              required
+              title="Please enter a 5-digit postal code"
+            />
+          </div>
+        </div>
+      </main>
+      <aside>
+        <div class="inputGroup">
+          <h3>Starter Plan</h3>
+          <div class="plans">
+            <div>
+              <label for="plan1" class="radio-label">
+                <input
+                  type="radio"
+                  name="plans"
+                  id="plan1"
+                  value="Pay Monthly"
+                  required
+                />
+                <div><span>Pay Monthly</span><span>$20/Month/Member</span></div>
+              </label>
+            </div>
+            <div>
+              <label for="plan2" class="radio-label">
+                <input
+                  type="radio"
+                  name="plans"
+                  id="plan2"
+                  value="Pay Annual"
+                  required
+                />
+                <div><span>Pay Annual</span><span>$16/Month/Member</span></div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <footer>
+          <div><span>Total</span><span>$20 / Month</span></div>
+          <span>
+            <img src="../../common/assets/icons/Lock.svg" alt="Lock Icon" />
+            This environment is for demonstration purposes only. Please refrain
+            from entering any actual sensitive data.
+          </span>
+          <div>
+            <input type="reset" value="Cancel" />
+            <input type="submit" value="Subscribe" />
+          </div>
+        </footer>
+      </aside>
+    </form>
+    <div id="floating-card" class="hidden">
+      <div class="card-content">
+        <img src="../../common/assets/icons/Info.svg" alt="Info Icon" />
+        <p id="floating-card-message"></p>
+      </div>
+    </div>
+    <script>
+      const form = document.getElementById("subscription-form");
+      const card = document.getElementById("floating-card");
+      const card_message = document.getElementById("floating-card-message");
+
+      const submitForm = () => {
+        const formData = new FormData(form);
+        const userData = {};
+        formData.forEach((value, key) => {
+          userData[key] = value;
+        });
+        console.log(userData);
+        card_message.textContent = `Thank you, ${
+          userData.full_name || "User"
+        }! Your subscription is being processed.`;
+        showFloatingCard();
+        form.reset();
+      };
+      const showFloatingCard = (message) => {
+        card.classList.remove("hidden");
+        card.classList.add("visible");
+        setTimeout(() => {
+          card.classList.remove("visible");
+          card.classList.add("hidden");
+        }, 5000);
+      };
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        submitForm();
+      });
+    </script>
+  </body>
+</html>
