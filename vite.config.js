@@ -7,8 +7,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: "./index.html",
-        imageUploader: "./pages/image_uploades/index.html",
-        checkoutPage: "./pages/image_uploades/chckout_page.html",
+        imageUploader: "./pages/image_uploader/index.html",
+        checkoutPage: "./pages/checkout_page/checkout_page.html",
       },
     },
   },
