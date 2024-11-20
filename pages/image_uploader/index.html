@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Responsive Web Developer Starter - devchallenges.io</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="any">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Responsive Image Uploader</title>
+    <link
+      rel="icon"
+      href="images/favicon.ico"
+      type="image/x-icon"
+      sizes="any"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-        <div class="get-started">Get started by editting <b>index.html</b></div>
-        <img class="logo" src="images/logo.svg" alt="Main Logo">
+      <img class="logo" src="images/logo.svg" alt="Main Logo" />
+      <img class="toggle_mode" src="images/Moon_fill.svg" alt="Moon_logo" />
     </header>
 
     <main>
-        <img src="images/devchallenges-logo.svg" alt="A beautiful landscape">
-        <h3 class="title">Responsive Web Developer Starter</h3>
+      <div class="container_outer input" id="container-outer">
+        <div class="input_container" id="drop-zone">
+          <header>
+            <img class="logo" src="images/upload.svg" alt="Upload Logo" />
+          </header>
+          <footer>
+            <div class="text">
+              <p>
+                Drag & drop files or
+                <label for="file-input"><span>browse files</span></label>
+              </p>
+              <p>JPG, PNG, or GIF - Max size 2MB</p>
+              <input
+                type="file"
+                id="file-input"
+                accept=".jpg, .jpeg, .png, .gif"
+                name="file-input"
+              />
+            </div>
+          </footer>
+        </div>
+        <div class="progress_container hidden" id="progress-container">
+          <p><b>Uploading</b>, please wait..</p>
+          <div class="loader_bar"><div class="progress_bar"></div></div>
+        </div>
+        <img class="result_container" id="result-container" />
+      </div>
     </main>
 
-    <footer>
-        <a class="link-card" href="https://devchallenges.io/" target="_blank">
-            <div class="link-title">Challenges</div>
-            <div class="link-description">Choose a challenge and start learning by building real-life projects.</div>
-        </a>
-
-        <a class="link-card" href="https://devchallenges.io/challenges" target="_blank">
-            <div class="link-title">Solutions</div>
-            <div class="link-description">Checkout how orders solve the challenges, compare with yours and give them feedback.</div>
-        </a>
-
-        <a class="link-card" href="https://devchallenges.io/" target="_blank">
-            <div class="link-title">Blogs</div>
-            <div class="link-description">Checkout devchallenges blogs, tutorials, updates. Find useful resources to get you started.</div>
-        </a>
-
-        <a class="link-card" href="https://devchallenges.io/" target="_blank">
-            <div class="link-title">Deploy</div>
-            <div class="link-description">How to deploy and submit your solution.</div>
-        </a>
-       
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+    <script src="js/script.js" type="module"></script>
+  </body>
 </html>

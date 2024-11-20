@@ -2,5 +2,19 @@
   "private": true,
   "dependencies": {
     "@vercel/edge": "^0.1.2"
+  },
+  "name": "html-pages",
+  "version": "1.0.0",
+  "description": "---\r name: HTML Starter\r slug: html-starter-with-analytics\r description: HTML5 template with analytics and advanced routing configuration.\r deployUrl: https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/html&project-name=html\r relatedTemplates:\r   - nextjs-boilerplate\r ---",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.11"
   }
 }
